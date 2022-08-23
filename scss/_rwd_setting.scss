@@ -1,0 +1,21 @@
+$mobile: 320;
+$mobile_s: 360;
+$mobile_m: 414;
+$pad: 768;
+$pc-m: 992;
+$pc-l: 1200;
+@mixin rwdSize-min($inputSize){
+    @media(min-width: #{$inputSize}px){
+        @content;
+    }
+}
+@mixin rwdSize-max($inputSize){
+    @media(max-width: #{$inputSize - 1}px){
+        @content;
+    }
+}
+@mixin rwdSize-between($inputSize-min, $inputSize-max){
+    @media(min-width: #{$inputSize-min}px) and (max-width: #{$inputSize-max - 1}px){
+        @content;
+    }
+}

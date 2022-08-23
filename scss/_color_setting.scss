@@ -1,0 +1,11 @@
+@mixin imgUrl($img){
+    background-image: url(../images/#{$img});
+}
+$main-color: #2f5575;
+$sec-color: #90b8d3;
+$main-color-text:#29577b;
+$sec-color-text:#2f5575;
+
+@mixin linearGradient($deg,$color_1,$color_1_pos,$color_2,$color_2_pos){
+    background-image: linear-gradient(#{$deg}deg, $color_1 $color_1_pos, $color_2 $color_2_pos);
+}

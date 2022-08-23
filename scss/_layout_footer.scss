@@ -1,0 +1,66 @@
+@import '_rwd_setting';
+footer{
+    background-color: #fefefe;
+    padding: 60px 0;
+    .container{
+       @include rwdSize-min($pad){
+         display: flex;
+         justify-content: center;
+      }
+    }
+    .logo{
+       @include rwdSize-max($pad){
+          width: 30%;
+          margin: auto;
+          max-width: 110px;
+       }
+       @include rwdSize-min($pad){
+         float: left;
+         width: 100px;
+       }
+    }
+    #footer_information{
+      width: 280px;
+      margin: 30px auto;
+      text-align: center;
+      @include rwdSize-min($pad){
+         display: flex;
+         align-items: flex-end;
+         justify-content: space-between;
+         width: 400px;
+         padding: 10px 0;
+         text-align: left;
+         margin: 0 40px;
+      }
+    }
+    #company_list{
+       ul{
+         li{
+            font-size: 16px;
+            margin: 18px 0;
+            color: $main-color-text;
+            a{
+               color: $main-color-text;
+            }
+         }
+       }
+       .company_name{
+         font-weight: bold;
+         margin: 0 0 20px 0;
+         font-size: 20px;
+       }
+    }
+    #social_contact_us{
+       display: flex;
+       justify-content: center;
+       ul{
+           li{
+            float: left;
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            text-align: center;
+           }
+       }
+    }
+   }

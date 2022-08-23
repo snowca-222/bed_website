@@ -1,0 +1,165 @@
+@import '_rwd_setting';
+// common setting
+*{
+    box-sizing: border-box;
+    &[class*=grid-col-]{
+        float: left;
+    }
+}
+input,textarea{
+    &:focus{
+        outline: 2px solid lighten($main-color,30%);
+    }
+}
+html, body{
+    font-family: arial, 'microsoft jhenghei';
+}
+a{
+    text-decoration: none;
+}
+ul,li,ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+img{
+    display: block;
+    width: 100%;
+}
+button{
+    cursor: pointer;
+}
+@for $i from 1 through 12{
+    .grid-col-mb-#{$i}{
+        width: $i / 12 * 100%;
+    }
+    @include rwdSize-min($pad){
+        .grid-col-pad-#{$i}{
+            width: $i / 12 * 100% !important;
+        }
+    }
+    @include rwdSize-min($pc-m){
+        .grid-col-m-#{$i}{
+            width: $i / 12 * 100% !important;
+        }
+    }
+    @include rwdSize-min($pc-l){
+        .grid-col-l-#{$i}{
+            width: $i / 12 * 100% !important;
+        }
+    }
+}
+.clearfix{
+    &::after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+.box_left{
+    float: left;
+}
+.box_right{
+    float: right;
+}
+.text_en{
+    font-weight: normal;
+}
+.button_primary{
+    border: 0;
+    color: #fff;
+    background-color: $main-color;
+    padding: 8px 30px;
+    border-radius: 18px;
+}
+// common setting end
+.container{
+    margin: auto;
+    @include rwdSize-min($pad){
+        width: #{$pad}px;
+    }
+    @include rwdSize-min($pc-m){
+        width: #{$pc-m}px;
+    }
+    @include rwdSize-min($pc-l){
+        width: #{$pc-l}px;
+    }
+}
+main{
+    padding-top: 60px;
+    @include rwdSize-min($pad){
+        padding-top: 80px;
+    }
+}
+.scrollBox{
+    position: relative;
+    .scrollBox_order{
+        overflow: hidden;
+        .scrollItem{
+            position: relative;
+            &::after{
+                display: block;
+                content: "";
+                clear: both;
+            }
+            .listItem{
+                position: absolute;
+                top: 0;
+            }
+        }
+    }
+    %arrowStyle_left{
+        position: absolute;
+        display: block;
+        content: "";
+        width: 30px;
+        height: 4px;
+        left: 10px;
+    }
+    %arrowStyle_right{
+        position: absolute;
+        display: block;
+        content: "";
+        width: 30px;
+        height: 4px;
+        right: 10px;
+    }
+    .scrollController{
+        position: absolute;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        .btn_left{
+            position: relative;
+            width: 50px;
+            height: 40px;
+            cursor: pointer;
+            &::before{
+                @extend %arrowStyle_left;
+                transform: rotate(-45deg);
+                top: 8px;
+            }
+            &::after{
+                @extend %arrowStyle_left;
+                transform: rotate(45deg);
+                bottom: 8px;
+            }
+        }
+        .btn_right{
+            position: relative;
+            width: 50px;
+            height: 40px;
+            cursor: pointer;
+            &::before{
+                @extend %arrowStyle_right;
+                transform: rotate(45deg);
+                top: 8px;
+            }
+            &::after{
+                @extend %arrowStyle_right;
+                transform: rotate(-45deg);
+                bottom: 8px;
+            }
+        }
+    }
+}

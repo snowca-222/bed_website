@@ -1,0 +1,225 @@
+@import '_color_setting';
+@import '_rwd_setting';
+header{
+    width: 100%;
+    height: 60px;
+    background-color: $sec-color;
+    position: fixed;
+    z-index: 100;
+    box-shadow: 0 3px 3px rgba(0,0,0,.5);
+    @include rwdSize-min($pad){
+        height: 80px;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        @include rwdSize-min($pad){
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+    .logo{
+        a{
+            display: block;
+            width: 120px;
+            height: 60px;
+            @include rwdSize-min($pad){
+                width: 204px;
+                height: 80px;
+            }
+        }
+    }
+    #nav_hamberger{
+        width: 40px;
+        height: 40px;
+        background-color: $main-color;
+        border-radius: 5px;
+        margin: 10px;
+        cursor: pointer;
+        @include rwdSize-min($pad){
+            display: none;
+        }
+        %ham_icon{
+            position: absolute;
+            width: 30px;
+            height: 4px;
+            background-color: #fff;
+        }
+        .ham_bar{
+            position: relative;
+            @extend %ham_icon;
+            margin: 18px auto;
+            &::before{
+                @extend %ham_icon;
+                content: "";
+                top: -10px;
+                transform: rotate(0deg);
+                transition: transform .2s ease;
+            }
+            &::after{
+                @extend %ham_icon;
+                content: "";
+                bottom: -10px;
+                transform: rotate(0deg);
+                transition: transform .2s ease;
+            }
+            &.active{
+                background-color: transparent;
+                &::before{
+                    top: 0;
+                    transform: rotate(-45deg);
+                }
+                &::after{
+                    bottom: 0;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+    .blackBoard{
+        // display: none;
+        position: fixed;
+        top: 60px;
+        right: 0;
+        width: 0;
+        height: 100%;
+        background-color: rgba(0,0,0,.8);
+        z-index: 2;
+        transition: width .5s ease;
+        &.active{
+            width: 100%;
+            // display: block;
+        }
+    }
+    nav{
+        position: fixed;
+        top: 60px;
+        right: -180px;
+        width: 180px;
+        height: 100%;
+        transition: right .5s ease ;
+        z-index: 3;
+        @include linearGradient(0,#5483AA,0%,#2F5575,50%);
+        &.active{
+            right: 0;
+        }
+        @include rwdSize-min($pad){
+            position: static;
+            width: auto;
+            height: auto;
+            background-image: none;
+        }
+        > ul{
+            display: block;
+            @include rwdSize-min($pad){
+                display: flex;
+            }
+            > li{
+                margin: 30px 0 30px 20px;
+                @include rwdSize-max($pad){
+                    position: relative;
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        width: 2px;
+                        height: 6px;
+                        background-color: #fff;
+                        left: -10px;
+                        top: 5px;
+                    }
+                }
+                @include rwdSize-min($pad){
+                    margin: 0 5px;
+                }
+                &.active{
+                    &::before{
+                        top: -4px;
+                        width: 2px;
+                        height: 25px
+                    }
+                    > a{
+                        @extend %list_activity;
+                        @include rwdSize-max($pad){
+                            padding: 4px;
+                            color: $main-color-text !important;
+                            background-color: #fff !important;
+                        }
+                    }
+                }
+                &:hover{
+                    > a{
+                        @extend %list_activity;
+                    }
+                    > .second_lists{
+                        @extend %list_activity;
+                        ul{
+                            &.secList_box{
+                                display: block;
+                            }
+                        }
+                    }
+                }
+                .second_lists{
+                    position: relative;
+                    font-weight: bold;
+                    color: #fff;
+                    letter-spacing: 4px;
+                    @include rwdSize-min($pad){
+                        display: inline;
+                        color: $main-color-text;
+                        padding: 12px 10px;
+                        color: $main-color;
+                        border-radius: 8px 8px 0 0;
+                        font-weight: bold;
+                        letter-spacing: 2px;
+                        cursor: pointer;
+                    }
+                    > ul{
+                        &.secList_box{
+                            display: none;
+                            position: absolute;
+                            top: 40px;
+                            left: 0;
+                            width: 160px;
+                            background-image: linear-gradient(0deg, #5483aa 0%, #2f5575 100%);
+                        }
+                        > li{
+                            a{
+                                display: block;
+                                color: #fff;
+                                padding: 10px;
+                                border-radius: 0;
+                                border-bottom: 1px dashed #fff;
+                                &:hover{
+                                    background-color: rgba(white,.5);
+                                }
+                            }
+                            &:nth-last-of-type(1){
+                                a{
+                                    border-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                a{
+                    color: #fff;
+                    font-size: 16px;
+                    letter-spacing: 4px;
+                    @include rwdSize-min($pad){
+                        padding: 12px 10px;
+                        color: $main-color;
+                        border-radius: 8px;
+                        font-weight: bold;
+                        letter-spacing: 2px;
+                    }
+                }
+                %list_activity{
+                    color: #fff;
+                    background-color: $main-color;
+                    
+                }
+            }
+        }
+    }
+}

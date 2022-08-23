@@ -1,0 +1,912 @@
+@import '_color_setting';
+@import '_common_setting';
+@import '_layout_header';
+@import '_layout_footer';
+@import '_rwd_setting';
+.banner{
+    &#idx_banner{
+        position: relative;
+        @include imgUrl('banner/index_banner.png');
+        background-size: cover;
+        background-position: center;
+        .logo{
+            position: absolute;
+            width: 80px;
+            top: 20px;            
+            left: 0;
+            right: 0;
+            margin: auto;
+            @include rwdSize-min($pad){
+                width: 130px;
+                top: 40px;
+            }
+            @include rwdSize-min($pc-m){
+                width: 150px;
+            }
+            @include rwdSize-min($pc-l){
+                width: 180px;
+                top: 40px;
+            }
+        }
+        .banner_bubbles{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            z-index: 4;
+            .bubble_item_style{
+                position: absolute;
+                @include imgUrl('banner/bubble_img.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                &.bb_item_1{
+                    width: 12%;
+                    top: 47%;
+                    left: 20%;
+                }
+                &.bb_item_2{
+                    width: 11%;
+                    top: 16%;
+                    left: 66%;
+                }
+                &.bb_item_3{
+                    width: 7%;
+                    top: 22%;
+                    left: 34%;
+                }
+                &.bb_item_4{
+                    width: 8%;
+                    top: 50%;
+                    left: 53%;
+                }
+            }
+
+        }
+        .banner_cloud{
+            position: absolute;
+            bottom: -60px;
+            z-index: 3;
+            @include rwdSize-min($pad){
+                bottom: -100px;
+            }
+            @include rwdSize-min($pc-l){
+                bottom: -80px;
+            }
+            img{
+                position: relative;
+                z-index: 2;
+            }
+            &::after{
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 26%;
+                background-image: linear-gradient(0deg, rgba(#fff,0) 0%, #fff 20%);
+                bottom: 4%;
+                @include rwdSize-min($pad){
+                    width: 100%;
+                    bottom: 6%;
+                }
+                @include rwdSize-min($pc-l){
+                    width: 100%;
+                    bottom: 5%;
+                }
+            }
+        }
+    }
+    &#contact_banner{
+        position: relative;
+        // @include imgUrl();
+        background-image: url(https://source.unsplash.com/random/200x200?sig=1);
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 560px;
+        .slogan_text{
+            position: absolute;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 10px;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+    &#products_banner{
+        position: relative;
+        // @include imgUrl();
+        background-image: url(https://source.unsplash.com/random/200x200?sig=2);
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 560px;
+        .logo{
+            position: absolute;
+            width: 80px;
+            top: 20px;            
+            left: 0;
+            right: 0;
+            margin: auto;
+            @include rwdSize-min($pad){
+                width: 130px;
+                top: 40px;
+            }
+            @include rwdSize-min($pc-m){
+                width: 150px;
+            }
+            @include rwdSize-min($pc-l){
+                width: 180px;
+                top: 40px;
+            }
+        }
+        %slogan_straight_line{
+            position: absolute;
+            display: block;
+            content: "";
+            width: 2px;
+            height: 40px;
+            background-color: $main-color;
+            top: 0;
+            z-index: 2;
+        }
+        .slogan_text{
+            position: absolute;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 10px;
+            width: 300px;
+            color: $main-color-text;
+            top: 60%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            @include rwdSize-min($pad){
+                width: 500px;
+                font-size: 32px;
+            }
+            &::before{
+                @extend %slogan_straight_line;
+                left: 0;
+            }
+            &::after{
+                @extend %slogan_straight_line;
+                right: 0;
+            }
+        }
+    }
+}
+article{
+    &#mainPage_article{
+        background-image: url(../images/index_bg.png);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+section{
+    .title{
+        position: relative;
+        font-weight: bold;
+        font-size: 22px;
+        text-align: center;
+        margin: auto;
+        padding: 0 0 10px 0;
+        @include rwdSize-min($pad){
+            font-size: 25px;
+        }
+        @include rwdSize-min($pc-m){
+            font-size: 29px;
+            padding: 0 0 10px 0;
+        }
+        @include rwdSize-min($pc-l){
+            font-size: 32px;
+        }
+        &::after{
+            position: absolute;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 3px;
+            bottom: 0px;
+            background-color: $main-color;
+        }
+    }
+    .title_left{
+        text-align: center;
+        @include rwdSize-min($pad){
+            float: left;
+        }
+        .title{
+            font-size: 28px;
+            font-weight: bold;
+            padding: 0;
+        }
+    }
+    .content_right{
+        @include rwdSize-min($pad){
+            float: right;
+        }
+    }
+    // 解說
+    #women_box{
+        position: relative;
+        @include rwdSize-max($pad){
+            margin-top: 28px;
+        }
+        .women_img{
+            width: 100%;
+            height: 260px;
+            background-image: url(../images/women_sleep.png);
+            background-size: cover;
+            background-position: 50%;
+            @include rwdSize-min($pad){
+                height: 680px;
+            }
+        }
+        .contentBox{
+            position: absolute;
+            background-color: rgba($sec-color,0.9);
+            color: $main-color;
+            box-shadow: 0 0 8px #666;
+            width: 100%;
+            top: 16px;
+            padding: 20px 0;
+            margin: auto;
+            @include rwdSize-min($pad){
+                top: 0;
+                bottom: 0;
+                right: 10px;
+                width: 500px;
+                height: 300px;
+                padding: 30px;
+                background-color: rgba($sec-color,0.7);
+            }
+            @include rwdSize-min($pc-m){
+                right: 4%;
+                width: 530px;
+                height: 410px;
+                padding: 70px;
+            }
+            @include rwdSize-min($pc-l){
+                width: 744px;
+                height: 467px;
+                padding: 100px;
+            }
+            .title{
+                width: 290px;
+                @include rwdSize-min($pad){
+                    width: 320px;
+                }
+            }
+            .content{
+                width: 280px;
+                margin: auto;
+                p{
+                    font-size: 15px;
+                    line-height: 30px;
+                    padding: 4px;
+                    margin: 0;
+                    @include rwdSize-min($pad){
+                        font-size: 18px;
+                        width: 360px;
+                        margin: 30px auto;
+                        line-height: 40px;
+                        padding: 0;
+                    }
+                }
+                @include rwdSize-min($pad){
+                    width: 300px;
+                }
+            }
+        }
+    }
+    // 獨家特色
+    &#feature{
+        background-color: #fafafa;
+        padding: 30px 0;
+        margin-bottom: 60px;
+        @include rwdSize-min($pad){
+            margin-bottom: 100px;
+            padding: 60px 0;
+        }
+        .title{
+            color: $main-color;
+            width: 320px;
+        }
+        .scrollBox{
+            .scrollItem{
+                .listItem{
+                    width: 100%;
+                    margin: 0;
+                    padding: 20px;
+                    opacity: .5;
+                    @include rwdSize-min($pad){
+                        width: calc(100% / 3);
+                    }
+                    @include rwdSize-min($pc-m){
+                        width: calc(100% / 5);
+                    }
+                    div{
+                        transform: scale(.6);
+                        transition: transform .2s ease;
+                        &.feature_title{
+                            text-align: center;
+                            color: $main-color;
+                            font-size: 18px;
+                        }
+                    }
+                    &.active{
+                        opacity: 1;
+                        div{
+                            transform: scale(1);
+                            &.feature_title{
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        %arrowStyle{
+            background-color: $main-color;
+        }
+        .scrollController{
+            top: 50%;
+            .btn_left,.btn_right{
+                &::before{
+                    @extend %arrowStyle;
+                }
+                &::after{
+                    @extend %arrowStyle;
+                }
+            }
+        }
+    }
+    // 職人客製化
+    &#customized{
+        background-color: $sec-color;
+        margin-bottom: 60px;
+        padding: 30px 10px;
+        @include rwdSize-min($pad){
+            padding: initial;
+            margin-bottom: 100px;
+        }
+        .title_left{
+            width: 240px;
+            margin: 0 auto;
+            @include rwdSize-min($pad){
+                margin: 40px 0 0 10px;
+            }
+            @include rwdSize-min($pc-m){
+                margin: 110px 0 0 30px;
+            }
+            @include rwdSize-min($pc-l){
+                margin: 130px 0 0 30px;
+            }
+            .title{
+                position: relative;
+                color: $sec-color-text;
+                &::after{
+                    position: absolute;
+                    display: block;
+                    content: "";
+                    width: 100%;
+                    height: 3px;
+                    bottom: -10px;
+                    background-color: $main-color;
+                }
+            }
+            .slogan_second{
+                font-size: 16px;
+                font-weight: normal;
+                color: #333;
+                padding: 20px 0;
+            }
+        }
+        #customerBox{
+            position: relative;
+            width: 300px;
+            margin: auto;
+            @include rwdSize-min($pad){
+                width: 490px;
+                padding: 20px;
+            }
+            @include rwdSize-min($pc-m){
+                width: 690px;
+                padding: 40px;
+            }
+            @include rwdSize-min($pc-l){
+                width: 900px;
+                padding: 50px;
+                height: 328px;
+            }
+            .the_dog{
+                position: absolute;
+                width: 100px;
+                z-index: 2;
+                bottom: -3%;
+                left: 0%;
+                @include rwdSize-min($pad){
+                    width: 80px;
+                    left: -5%;
+                    bottom: 50%;
+                    transform: translateY(70%);
+                }
+                @include rwdSize-min($pc-m){
+                    width: 120px;
+                    left: -5%;
+                }
+                @include rwdSize-min($pc-l){
+                    width: 150px;
+                    left: -5%;
+                }
+            }
+            .the_bed_style_box{
+                position: relative;
+                width: 100%;
+                border: 4px solid #fff;
+                border-radius: 40px;
+                @include rwdSize-min($pad){
+                    display: flex;
+                    justify-content: flex-end;
+                }
+                &::after{
+                    position: absolute;
+                    content: "";
+                    width: calc(100% - 20px);
+                    height: calc(100% - 20px);
+                    border: 1px solid #fff;
+                    top: 10px;
+                    left: 10px;
+                    border-radius: 30px;
+                }
+                .bed_style_item{
+                    width: 240px;
+                    padding: 14px;
+                    margin: auto;
+                    @include rwdSize-min($pad){
+                        width: 140px;
+                        margin: initial;
+                    }
+                    @include rwdSize-min($pc-m){
+                        width: 190px;
+                    }
+                    @include rwdSize-min($pc-l){
+                        width: 240px;   
+                    }
+                    .customer_text{
+                        text-align: center;
+                        background-color: #dee0f4;
+                        font-weight: bold;
+                        color: $main-color-text;
+                        width: 100px;
+                        padding: 3px 7px;
+                        margin: auto;
+                        border-radius: 12px;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+    // 最新消息
+    &#newsBox{
+        background-color: transparent;
+        @include rwdSize-min($pc-m){
+            background-color: $main-color;
+        }
+        .title_left{
+            width: 240px;
+            margin: 0 auto;
+            padding: 30px 0;
+            @include rwdSize-between($pad, $pc-m){
+                float: none !important;                
+            }
+            @include rwdSize-min($pc-m){
+                margin: 140px 0 0 30px;
+                padding: 0;
+            }
+            @include rwdSize-min($pc-l){
+                margin: 140px 0 0 60px;
+                padding: 0;
+            }
+            .title{
+                color: #fff;
+                &::after{
+                    @include rwdSize-max($pc-m){
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+        #newsContent{
+            position: relative;
+            width: 100%;
+            @include rwdSize-min($pc-m){
+                background-color: #fff;
+                width: calc(100% - 360px);
+            }
+            @include rwdSize-min($pc-l){
+                width: calc(100% - 440px);
+            }
+            &::after{
+                @include rwdSize-min($pc-m){
+                    position: absolute;
+                    display: block;
+                    content: "";
+                    width: 90px;
+                    height: 100%;
+                    top: 0;
+                    left: -50px;
+                    background-color: #fff;
+                    transform: skewX(-10deg);
+                    z-index: 1;
+                }
+            }
+            ul{
+                position: relative;
+                z-index: 2;
+                li{
+                    width: 100%;
+                    padding: 10px;
+                    @include rwdSize-min($pad){
+                        width: calc(100% / 3);
+                    }
+                    a{
+                        display: block;
+                        transition: background-color .2s ease;
+                        padding: 15px 15px 5px 15px;
+                        background-color: rgba(#999,.4);
+                        border-radius: 10px;
+                        @include rwdSize-min($pc-m){
+                            background-color: #fff;
+                            border-radius: 0;
+                            padding: 20px;
+                        }
+                        span{
+                            display: block;
+                            &.news_img{
+                                padding: 20px;
+                                position: relative;
+                                overflow: hidden;
+                                width: 100%;
+                                height: 200px;
+                                img{
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50% , -50%);
+                                }
+                            }
+                            &.news_title{
+                                position: relative;
+                                width: 100%;
+                                height: 40px;
+                                margin: 10px 0;
+                                padding: 3px 6px;
+                                color: #fff;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                font-size: 15px;
+                                &::after{
+                                    @include rwdSize-max($pc-m){
+                                        position: absolute;
+                                        content: "> 詳讀全文 ";
+                                        text-decoration: underline;
+                                        bottom: 0px;
+                                        right: 0;
+                                    }
+                                }
+                                @include rwdSize-min($pad){
+                                    font-size: 13px;
+                                }
+                                @include rwdSize-min($pc-m){
+                                    height: auto;
+                                    line-height: 30px;
+                                    color: #333;
+                                    background-color: rgba(#666,.1);
+                                    font-size: 14px;
+                                }
+                                @include rwdSize-min($pc-l){
+                                    font-size: 15px;
+                                }
+                            }
+                            
+                        }
+                        &:hover{
+                            background-color: #ecf7ff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &#about_page{
+        .contentBox{
+            color: $main-color;
+            width: 100%;
+            top: 16px;
+            padding: 20px 0;
+            margin: auto;
+            @include rwdSize-min($pad){
+                top: 0;
+                bottom: 0;
+                right: 10px;
+                padding: 30px;
+            }
+            @include rwdSize-min($pc-m){
+                right: 4%;
+                padding: 70px;
+            }
+            @include rwdSize-min($pc-l){
+                padding: 100px;
+            }
+            .title{
+                width: 290px;
+                @include rwdSize-min($pad){
+                    width: 320px;
+                }
+            }
+            .content{
+                margin: auto;
+                padding: 10px;
+                > div{
+                    &:nth-of-type(2){
+                        margin-top: 20px;
+                    }
+                    > div{
+                        font-size: 12px;
+                        line-height: 30px;
+                        margin: 0;
+                        color: #333;
+                        text-align: center;
+                        @include rwdSize-min($mobile_s){
+                            font-size: 14px;
+                        }
+                        @include rwdSize-min($mobile_m){
+                            font-size: 15px;
+                        }
+                        @include rwdSize-min($pad){
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // 商品資訊(熱門/限時)
+    &#products{
+        background-color: $sec-color;
+        .title{
+            color: $sec-color-text;
+            font-size: 22px;
+            width: 160px;
+            padding: 10px 0;
+        }
+        .scrollBox{
+            padding: 30px 0;
+            .scrollItem{
+                .listItem{
+                    width: 100%;
+                    height: 280px;
+                    margin: 0 0px;
+                    @include rwdSize-min($pad){
+                        width: calc(100% / 3);
+                    }
+                    
+                    @include rwdSize-min($pc-l){
+                        width: 240px;
+                    }
+                    > div{
+                        a{
+                            .product_img{
+                                display: block;
+                                padding: 30px;
+                                transition: padding .3s linear;
+                            }
+                            .product_name{
+                                display: block;
+                                text-align: center;
+                                padding: 4px 0;
+                                color: #333;
+                                font-weight: bold;
+                                opacity: 0;
+                                transition: opacity .3s ease;
+                            }
+                        }
+                    }
+                    &.active{
+                        .product_img{
+                            padding: 10px;
+                        }
+                        .product_name{
+                            opacity: 1;
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+            .scrollController{
+                top: 40%;
+                %arrowStyle2{
+                    background-color: #fff;
+                }
+                .btn_left,.btn_right{
+                    &::before{
+                        @extend %arrowStyle2;
+                    }
+                    &::after{
+                        @extend %arrowStyle2;
+                    }
+                }
+            }   
+        }
+    }
+    // 好眠商品
+    &#products_page{
+        nav{
+            &#breadcrumb_nav{
+                > span{
+                    font-size: 13px;
+                }
+                ol{
+                    display: inline-block;
+                    li{
+                        display: inline-block;
+                        font-size: 13px;
+                        color: #333;
+                        a{
+                            font-size: 13px;
+                            padding: 0;
+                            margin: 0;
+                            color: #333;
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                        &::after{
+                            display: inline-block;
+                            content: "/";
+                            margin: 0 5px;
+                        }
+                        &:nth-last-of-type(1){
+                            &::after{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #products_box{
+            .products_box_item{
+                padding: 10px;
+                a{
+                    display: block;
+                    background-color: #fc0;
+                }
+            }
+            #product_mainPhoto{
+                padding: 10px;
+            }
+            #product_information{
+                padding: 10px;
+                #priceBox{
+                    padding: 10px;
+                    > div{
+                        border: 1px solid #bbb;
+                        padding: 10px;
+                    }
+                }
+                #sizeBox{
+                    padding: 10px;
+                    > div{
+                        border: 1px solid #bbb;
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+    }
+    // 御柴客服中心
+    &#contactUs{
+        .title{
+            color: $main-color-text;
+            width: 240px;
+            margin: 40px auto;
+        }
+        .contact_box{
+            box-shadow: 0 0 3px rgba(0,0,0,.5);
+            padding: 10px;
+            margin: 10px;
+            @include rwdSize-min($pad){
+                padding: 20px;
+            }
+            #iframe_map{
+                margin-top: 20px;
+            }
+        }
+        #map{
+            #contact_logo{
+                display: none;
+                @include rwdSize-min($pad){
+                    display: block;
+                    width: 120px;
+                    margin: 0 20px 0 20%;
+                }
+                @include rwdSize-min($pc-m){
+                    margin: 0 10px 0 0;
+                }
+                @include rwdSize-min($pc-l){
+                    margin: 0 20px 0 0;
+                }
+                > img{
+                    margin: 20px 0 0 0;
+                }
+            }
+            ul#contact_information{
+                @include rwdSize-max($pad){
+                    float: none;
+                    width: 300px;
+                    margin: auto;
+                }
+                li{
+                    margin: 10px 0;
+                    padding: 4px 10px;
+                    color: #333;
+                    @include rwdSize-min($pad){
+                        letter-spacing: 3px;
+                    }
+                    a{
+                        color: #333;
+                    }
+                }
+            }
+            .iframeRWD{
+                position: relative;
+                padding-bottom: 50%;
+                padding-top: 30px;
+                height: 0;
+                overflow: hidden;
+                iframe{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        #contact_form{
+            // width: 620px;
+            ul{
+                li{
+                    margin: 20px 0;
+                }
+            }
+            input{
+                &[type="text"]{
+                    border: 0;
+                    border-bottom: 1px solid #333;
+                }
+            }
+            textarea{
+                width: 100%;
+                height: 273px;
+                @include rwdSize-between($pc-m,$pc-l){
+                    height: 202px;
+                }
+            }
+            button{
+                &#submit{
+                    display: block;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}

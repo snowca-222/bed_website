@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>製床所御品 - 首頁</title>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="banner" id="idx_banner">
+            <div class="logo"><img src="images/banner_logo.png" alt=""></div>
+            <div id="particles-js"></div>
+        </div>
+        <section id="about_page" class="clearfix">
+            <div class="contentBox">
+                <div class="title">製床所御品</div>
+                <div class="content">
+                    <div>
+                        <div>專業床墊製造商，職人精神為您提供舒適 & 安穩的睡眠</div>
+                        <div>製床所配合許多建設公司，裝潢設計公司除大宗批發外</div>
+                        <div>另販售許多常規產品 (台灣通用規格 & 歐規)</div>
+                    </div>
+                    <div>
+                        <div>我們深信好的睡眠</div>
+                        <div>不僅可以讓身理得到充分舒適</div>
+                        <div>亦可感動人心。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <article id="aboutPage_article">
+            <section id="feature">
+                <!-- <div class="title">獨家特色</div> -->
+                <div class="scrollBox">
+                    <div class="scrollBox_order">
+                        <ul class="scrollItem">
+                            <li class="listItem" data-item="1">
+                                <div class="feature_img"><img src="images/feature_01.png" alt="指定合作廠商"></div>
+                                <div class="feature_title">指定合作廠商</div>
+                            </li>
+                            <li class="listItem" data-item="2">
+                                <div class="feature_img"><img src="images/feature_02.png" alt="客製化設計"></div>
+                                <div class="feature_title">客製化設計</div>
+                            </li>
+                            <li class="listItem" data-item="3">
+                                <div class="feature_img"><img src="images/feature_03.png" alt="職人手作"></div>
+                                <div class="feature_title">職人手作</div>
+                            </li>
+                            <li class="listItem" data-item="4">
+                                <div class="feature_img"><img src="images/feature_04.png" alt="運送、舊床回收"></div>
+                                <div class="feature_title">運送、舊床回收</div>
+                            </li>
+                            <li class="listItem" data-item="5">
+                                <div class="feature_img"><img src="images/feature_05.png" alt="專人線上諮詢"></div>
+                                <div class="feature_title">專人線上諮詢</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="scrollController">
+                        <div class="btn_left"></div>
+                        <div class="btn_right"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="customized"></section>
+        </article>
+    </main>
+    <footer></footer>
+</body>
+<script src="js/particles.js"></script>
+<script>
+    let this_page = 'about_page';
+    particlesJS.load('particles-js','json/particlesjs-config.json')
+</script>
+<script type="module" src="js/js_template.js"></script>
+<script type="module" src="js/template/customer_module.js"></script>
+<script type="module" src="js/template/scrollBox.js"></script>
+<script>
+    $(document).ready(function(){
+        hot_product();
+        limit_product();
+    })
+    function hot_product(){
+        let list_temp = '';
+        const hot_arrays = [
+            {
+                img: '10',
+                name: '商品名稱1'
+            },
+            {
+                img: '11',
+                name: '商品名稱2'
+            },
+            {
+                img: '12',
+                name: '商品名稱3'
+            },
+            {
+                img: '13',
+                name: '商品名稱4'
+            },
+            {
+                img: '14',
+                name: '商品名稱5'
+            },
+        ];
+        for( let i = 0; i < 5; i++){
+            list_temp = `<a href="#"><span class="product_img"><img src="https://source.unsplash.com/random/200x200?sig=${hot_arrays[i].img}"></span><span class="product_name">${hot_arrays[i].name}</span></a>`;
+            $('#hot_products li > div').eq(i).html(list_temp)
+        }
+    }
+    function limit_product(){
+        let list_temp = '';
+        const limit_arrays = [
+            {
+                img: '15',
+                name: '商品名稱1'
+            },
+            {
+                img: '16',
+                name: '商品名稱2'
+            },
+            {
+                img: '17',
+                name: '商品名稱3'
+            },
+            {
+                img: '18',
+                name: '商品名稱4'
+            },
+            {
+                img: '19',
+                name: '商品名稱5'
+            },
+        ];
+        for( let i = 0; i < 5; i++){
+            list_temp = `<a href="#"><span class="product_img"><img src="https://source.unsplash.com/random/200x200?sig=${limit_arrays[i].img}"></span><span class="product_name">${limit_arrays[i].name}</span></a>`;
+            $('#limit_products li > div').eq(i).html(list_temp)
+        }
+    }
+</script>
+</html>
