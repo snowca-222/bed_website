@@ -20,7 +20,7 @@
         "nb_sides": 6
       },
       "image": {
-        "src": "/../images/bubble.png",
+        "src": "/bed_website/images/bubble.png",
         "width": 20,
         "height": 20
       }
