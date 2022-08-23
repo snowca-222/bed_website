@@ -1,4 +1,4 @@
-import { nav_lists, page_id } from "/bed_website/js/template/link_module.js";
+import { nav_lists, page_id } from "/../js/template/link_module.js";
 // 麵包屑功能
 export function breadcrumbTemp(){
     const breadcrumb_temp = `
