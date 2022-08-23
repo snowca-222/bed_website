@@ -1,4 +1,4 @@
-import { nav_lists , page_id } from "bed_website/js/template/link_module.js";
+import { nav_lists , page_id } from "/js/template/link_module.js";
 // 頁首
 export function headerTemp(){
     let header_temp = `
