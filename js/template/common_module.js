@@ -18,7 +18,7 @@ export function headerTemp(){
                                     <ul class="secList_box">
                                     ${list.lists.map((sec_list) => {
                                         return `
-                                                <li><a href="${sec_list.listLink}">${sec_list.listName}</a></li>
+                                                <li><a href="${list.link}?product_id=${sec_list.listMainId}">${sec_list.listName}</a></li>
                                                 `
                                             }).join('')}
                                             

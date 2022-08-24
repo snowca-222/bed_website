@@ -18,21 +18,21 @@ const nav_lists = [
         lists: '',
     },
     {
-        link: '',
+        link: 'products.html',
         name: '好眠商品',
         show: 'block',
         lists: [
             {
-                listLink: 'products.html',
                 listName: '床墊',
+                listMainId: 0,
             },
             {
-                listLink: 'products.html',
                 listName: '床架/床頭櫃',
+                listMainId: 1,
             },
             {
-                listLink: 'products.html',
                 listName: '衣櫃',
+                listMainId: 2,
             },
         ]
     },

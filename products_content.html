@@ -81,7 +81,8 @@
     <script>
         const product_url = location.href;
         if(product_url.indexOf('?') != -1){
-            const product_id = product_url.split('?')[1];
+            const getPropsItem = product_url.split('?')[1];
+            const product_id = getPropsItem.split('&')[1]
             fetch(`json/products/${product_id}.json`)
             .then(res => {
                 return res.json()

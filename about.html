@@ -12,13 +12,16 @@
 <body>
     <header></header>
     <main>
-        <div class="banner" id="idx_banner">
+        <div class="banner" id="about_banner">
             <div class="logo"><img src="images/banner_logo.png" alt=""></div>
-            <div id="particles-js"></div>
+            <div class="slogan_text">想讓你了解的都在這最好的。也在這</div>
         </div>
-        <section id="about_page" class="clearfix">
+        <section id="about_page">
             <div class="contentBox">
-                <div class="title">製床所御品</div>
+                <div class="title">
+                    <span>職人手作，傳遞舒適溫度</span>
+                    <div class="sub_title">- 製床所御品 -</div>
+                </div>
                 <div class="content">
                     <div>
                         <div>專業床墊製造商，職人精神為您提供舒適 & 安穩的睡眠</div>
@@ -31,11 +34,12 @@
                         <div>亦可感動人心。</div>
                     </div>
                 </div>
+                <div class="the_dog"><img src="images/customer_design_dog2.png" alt=""></div>
             </div>
         </section>
         <article id="aboutPage_article">
             <section id="feature">
-                <!-- <div class="title">獨家特色</div> -->
+                <div class="title">獨家特色</div>
                 <div class="scrollBox">
                     <div class="scrollBox_order">
                         <ul class="scrollItem">
@@ -72,76 +76,10 @@
     </main>
     <footer></footer>
 </body>
-<script src="js/particles.js"></script>
 <script>
     let this_page = 'about_page';
-    particlesJS.load('particles-js','json/particlesjs-config.json')
 </script>
 <script type="module" src="js/js_template.js"></script>
 <script type="module" src="js/template/customer_module.js"></script>
 <script type="module" src="js/template/scrollBox.js"></script>
-<script>
-    $(document).ready(function(){
-        hot_product();
-        limit_product();
-    })
-    function hot_product(){
-        let list_temp = '';
-        const hot_arrays = [
-            {
-                img: '10',
-                name: '商品名稱1'
-            },
-            {
-                img: '11',
-                name: '商品名稱2'
-            },
-            {
-                img: '12',
-                name: '商品名稱3'
-            },
-            {
-                img: '13',
-                name: '商品名稱4'
-            },
-            {
-                img: '14',
-                name: '商品名稱5'
-            },
-        ];
-        for( let i = 0; i < 5; i++){
-            list_temp = `<a href="#"><span class="product_img"><img src="https://source.unsplash.com/random/200x200?sig=${hot_arrays[i].img}"></span><span class="product_name">${hot_arrays[i].name}</span></a>`;
-            $('#hot_products li > div').eq(i).html(list_temp)
-        }
-    }
-    function limit_product(){
-        let list_temp = '';
-        const limit_arrays = [
-            {
-                img: '15',
-                name: '商品名稱1'
-            },
-            {
-                img: '16',
-                name: '商品名稱2'
-            },
-            {
-                img: '17',
-                name: '商品名稱3'
-            },
-            {
-                img: '18',
-                name: '商品名稱4'
-            },
-            {
-                img: '19',
-                name: '商品名稱5'
-            },
-        ];
-        for( let i = 0; i < 5; i++){
-            list_temp = `<a href="#"><span class="product_img"><img src="https://source.unsplash.com/random/200x200?sig=${limit_arrays[i].img}"></span><span class="product_name">${limit_arrays[i].name}</span></a>`;
-            $('#limit_products li > div').eq(i).html(list_temp)
-        }
-    }
-</script>
 </html>
