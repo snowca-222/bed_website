@@ -99,7 +99,16 @@
         @include imgUrl('banner/index_banner.png');
         background-size: cover;
         background-position: center;
-        height: 500px;
+        height: 290px;
+        @include rwdSize-min($pad){
+            height: 360px;
+        }
+        @include rwdSize-min($pc-m){
+            height: 400px;
+        }
+        @include rwdSize-min($pc-l){
+            height: 500px;
+        }
         .logo{
             position: absolute;
             width: 80px;
@@ -119,24 +128,37 @@
                 top: 40px;
             }
         }
+        .banner_bed_img{
+            width: 150px;
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            transform: translateX(-50%);
+            @include rwdSize-min($pad){
+                top: 55%;
+            }
+            @include rwdSize-min($pc-m){
+                top: 60%;
+            }
+        }
         .slogan_text{
             position: absolute;
-            font-size: 22px;
+            font-size: 18px;
             color: #fff;
             text-align: center;
             letter-spacing: 10px;
-            top: 66%;
+            top: 81%;
             left: 0;
             right: 0;
             margin: auto;
             text-shadow: 0 2px 5px #000;
             @include rwdSize-min($pad){
-                font-size: 28px;
-                top: 72%;
+                font-size: 24px;
+                top: 78%;
             }
             @include rwdSize-min($pc-m){
                 font-size: 32px;
-                top: 80%;
+                top: 78%;
             }
         }
     }
@@ -191,13 +213,13 @@
         background-position: center -450px;
         background-repeat: no-repeat;
         width: 100%;
-        height: 300px;
+        height: 200px;
         @include rwdSize-min($pad){
-            height: 400px;
+            height: 330px;
             background-position: center -380px;
         }
         @include rwdSize-min($pc-m){
-            height: 560px;
+            height: 400px;
             background-position: center -380px;
         }
         .logo{
@@ -215,7 +237,7 @@
                 width: 150px;
             }
             @include rwdSize-min($pc-l){
-                width: 180px;
+                width: 150px;
                 top: 40px;
             }
         }
@@ -236,22 +258,18 @@
             letter-spacing: 10px;
             width: 300px;
             color: $main-color-text;
-            top: 60%;
+            top: 80%;
             left: 0;
             right: 0;
             margin: auto;
             @include rwdSize-min($pad){
+                top: 80%;
                 width: 500px;
                 font-size: 32px;
             }
-            // &::before{
-            //     @extend %slogan_straight_line;
-            //     left: 0;
-            // }
-            // &::after{
-            //     @extend %slogan_straight_line;
-            //     right: 0;
-            // }
+            @include rwdSize-min($pc-m){
+                top: 75%;
+            }
         }
     }
 }
