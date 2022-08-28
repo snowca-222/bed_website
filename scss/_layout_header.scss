@@ -23,9 +23,11 @@ header{
             display: block;
             width: 120px;
             height: 60px;
+            margin-top: 5px;
             @include rwdSize-min($pad){
                 width: 204px;
                 height: 80px;
+                margin-top: initial;
             }
         }
     }
@@ -150,11 +152,14 @@ header{
                     > a{
                         @extend %list_activity;
                     }
-                    > .second_lists{
-                        @extend %list_activity;
-                        ul{
-                            &.secList_box{
-                                display: block;
+                    @include rwdSize-min($pad){
+                        > .second_lists{
+                            color: #fff;
+                            background-color: $main-color;
+                            ul{
+                                &.secList_box{
+                                    display: block;
+                                }
                             }
                         }
                     }
@@ -174,14 +179,31 @@ header{
                         letter-spacing: 2px;
                         cursor: pointer;
                     }
+                    &.active{
+                        > ul{
+                            &.secList_box{
+                                @include rwdSize-max($pad){
+                                    margin-top: 20px;
+                                    height: auto;
+                                }
+                            }
+                        }
+                    }
                     > ul{
                         &.secList_box{
-                            display: none;
-                            position: absolute;
-                            top: 40px;
-                            left: 0;
-                            width: 160px;
-                            background-image: linear-gradient(0deg, #5483aa 0%, #2f5575 100%);
+                            width: 100%;
+                            @include rwdSize-max($pad){
+                                height: 0;
+                                overflow: hidden;
+                            }
+                            @include rwdSize-min($pad){
+                                position: absolute;
+                                display: none;
+                                width: 160px;
+                                top: 40px;
+                                left: 0;
+                                background-image: linear-gradient(0deg, #5483aa 0%, #2f5575 100%);
+                            }
                         }
                         > li{
                             a{
@@ -189,10 +211,25 @@ header{
                                 color: #fff;
                                 padding: 10px;
                                 border-radius: 0;
-                                border-bottom: 1px dashed #fff;
+                                @include rwdSize-max($pad){
+                                    position: relative;
+                                    &::after{
+                                        position: absolute;
+                                        content: "";
+                                        width: 5px;
+                                        height: 14px;
+                                        border-left: 1px solid #fff;
+                                        border-bottom: 1px solid #fff;
+                                        top: 6px;
+                                        left: 0;
+                                    }
+                                }
+                                @include rwdSize-min($pad){
+                                    border-bottom: 1px dashed #fff;
+                                }
                                 &:hover{
                                     background-color: rgba(white,.5);
-                                }
+                                }                                
                             }
                             &:nth-last-of-type(1){
                                 a{
@@ -217,7 +254,6 @@ header{
                 %list_activity{
                     color: #fff;
                     background-color: $main-color;
-                    
                 }
             }
         }
