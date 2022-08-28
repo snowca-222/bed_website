@@ -12,7 +12,7 @@ const nav_lists = [
         lists: '',
     },
     {
-        link: '#',
+        link: 'limited.html',
         name: '限時優惠',
         show: 'block',
         lists: '',
@@ -53,6 +53,9 @@ switch(this_page){
         break;
     case 'customize_page':
         page_id = 2;
+        break;
+    case 'limited_page':
+        page_id = 3;
         break;
     case 'products_page':
         page_id = 4;
