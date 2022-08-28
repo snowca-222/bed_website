@@ -34,7 +34,7 @@
                                 </ul>                                
                             </div>
                             <ul id="size_information">
-                                <li class="size_ss">
+                                <li class="size_ss active">
                                     <div>
                                         <div class="size_infor_name">
                                             <span class="size_name">3呎</span>
@@ -80,6 +80,9 @@
                                     </div>
                                 </li>
                             </ul>
+                            <div id="mobile_show_price">
+                                <div>建議售價</div>$&nbsp;<span class="show_price"> - </span>&nbsp;元
+                            </div>
                         </div>
                         <div id="contact_with_box">
                             <a href="#" id="contact_withLINE" class="contact_now_btn"><span class="icon_img"><img src="images/icon/line_icon.png" alt=""></span> 洽詢客服</a>
@@ -100,6 +103,7 @@
     <script type="module" src="js/template/breadcrumb_module.js"></script>
     <script>
         const product_url = location.href;
+        let getPriceArray = [];
         if(product_url.indexOf('?') != -1){
             const getPropsItem = product_url.split('?')[1];
             const product_id = getPropsItem.split('&')[1]
@@ -108,14 +112,24 @@
                 return res.json()
             })
             .then(itemData =>{
-                console.log(itemData)
                 document.getElementById('item_name').innerHTML = itemData.name; // 置入名稱
                 document.getElementById('product_photo').innerHTML = `<img src="${itemData.itemImg}" alt="${itemData.name}">`;
-                document.getElementById('price_ss').innerHTML = itemData.price_s1.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-                document.getElementById('price_s').innerHTML = itemData.price_s2.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-                document.getElementById('price_m').innerHTML = itemData.price_s3.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-                document.getElementById('price_l').innerHTML = itemData.price_s4.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-                document.getElementById('price_xl').innerHTML = itemData.price_s5.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+
+                let price_s1 = itemData.price_s1.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+                let price_s2 = itemData.price_s2.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+                let price_s3 = itemData.price_s3.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+                let price_s4 = itemData.price_s4.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+                let price_s5 = itemData.price_s5.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+
+                getPriceArray.push(price_s1,price_s2,price_s3,price_s4,price_s5);
+
+                document.getElementById('price_ss').innerHTML = getPriceArray[0];
+                document.getElementById('price_s').innerHTML = getPriceArray[1];
+                document.getElementById('price_m').innerHTML = getPriceArray[2];
+                document.getElementById('price_l').innerHTML = getPriceArray[3];
+                document.getElementById('price_xl').innerHTML = getPriceArray[4];
+
+                $('#mobile_show_price > .show_price').html(getPriceArray[0])
 
                 let itemContent = ``;
                 itemData.content.forEach(itemImg => {
@@ -128,6 +142,22 @@
                 },100)
             })
         }
+        $('#size_information > li').on('click',function(){
+            $(this).addClass('active').siblings('.active').removeClass('active');
+            let getPrice = '';
+            if($(this).hasClass('size_ss')){
+                getPrice = getPriceArray[0];
+            }else if($(this).hasClass('size_s')){
+                getPrice = getPriceArray[1];
+            }else if($(this).hasClass('size_m')){
+                getPrice = getPriceArray[2]
+            }else if($(this).hasClass('size_l')){
+                getPrice = getPriceArray[3]
+            }else{
+                getPrice = getPriceArray[4]
+            }
+            $('#mobile_show_price > .show_price').html(getPrice);
+        })
     </script>
     
 

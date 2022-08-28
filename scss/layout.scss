@@ -1166,12 +1166,8 @@ section{
                         display: flex;
                         flex-wrap: wrap;
                         li{
-                            width: 100%;
                             font-weight: bold;
                             padding: 5px;
-                            @include rwdSize-min(470){
-                                width: calc(100% / 2);
-                            }
                             @include rwdSize-min($pad){
                                 width: calc(100% / 3);
                             }
@@ -1182,16 +1178,23 @@ section{
                                 width: calc(100% / 3);
                             }
                             > div{
-                                background-color: #efefef;
+                                @include rwdSize-min($pad){
+                                    background-color: #efefef;
+                                }
                                 > div{
                                     &.size_infor_name{
                                         position: relative;
                                         display: inline-block;
                                         margin-top: 5px;
                                         padding: 5px 10px;
-                                        color: #fff;
-                                        background-color: #604a3a;
+                                        color: #333;
+                                        background-color: #dcdcdc;
+                                        @include rwdSize-min($pad){
+                                            background-color: #604a3a;
+                                            color: #fff;
+                                        }
                                         &::after{
+                                            display: none;
                                             position: absolute;
                                             content: "";
                                             top: 0px;
@@ -1201,14 +1204,22 @@ section{
                                             border-style: solid;
                                             border-width: 31px 20px 0 0;
                                             border-color: #604a3a transparent transparent transparent;
+                                            @include rwdSize-min($pad){
+                                                display: block;
+                                            }
                                         }
                                         .size_name{
                                             font-size: 18px;
                                         }
                                         .size_cm{
+                                            font-size: 12px;
+                                            @include rwdSize-min($pad){
+                                                font-size: 14px;
+                                            }
                                         }
                                     }
                                     &.size_price{
+                                        display: none;
                                         background-color: transparent;
                                         text-align: right;
                                         font-size: 13px;
@@ -1216,9 +1227,37 @@ section{
                                         .show_price{
                                             font-size: 22px;
                                         }
+                                        @include rwdSize-min($pad){
+                                            display: block;
+                                        }
                                     }
                                 }
                             }
+                            &.active{
+                                > div{
+                                    > div{
+                                        &.size_infor_name{
+                                            color: #fff;
+                                            background-color: #604a3a;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #mobile_show_price{
+                        display: block;
+                        text-align: right;
+                        font-size: 13px;
+                        color: #604a3a;
+                        margin: 10px 0;
+                        @include rwdSize-min($pad){
+                            display: none;
+                        }
+                        .show_price{
+                            font-size: 20px;
+                            font-weight: bold;
+                            color: #f00;
                         }
                     }
                 }

@@ -62,5 +62,110 @@ footer{
             text-align: center;
            }
        }
-    }
    }
+   #fast_link_popBox{
+      position: fixed;
+      right: -50px;
+      bottom: 80px;
+      transition: right .5s ease;
+      &.show{
+         right: 10px;
+      }
+      &.active{
+         #go_top{
+            bottom: -50px;
+         }
+         #fast_link_popList{
+            li{
+               &.pop_fb{
+                  bottom: 95px;
+               }
+               &.pop_line{
+                  bottom: 50px;
+               }
+               &.pop_ig{
+                  bottom: 5px;
+               }
+            }
+         }
+      }
+      #fast_link_pop{
+         position: relative;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 40px;
+         height: 40px;
+         right: 0px;
+         border-radius: 20px;
+         background-color: $main-color;
+         box-shadow: 0 3px 4px rgba(#333,.5);
+         transition: background-color .2s ease;
+         cursor: pointer;
+         z-index: 3;
+         &:hover{
+            background-color: darken($sec-color,10%);
+         }
+         > img{
+            width: 70%;
+            transform: rotate(0);
+            transition: transform .2s ease;
+            &:hover{
+               transform: rotate(180deg);
+            }
+         }
+      }
+      #fast_link_popList{
+         position: relative;
+         li{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 3px 4px rgba(#333,.5);
+            bottom: -40px;
+            transition: bottom .2s ease;
+         }
+      }
+      #go_top{
+         position: absolute;
+         width: 40px;
+         height: 40px;
+         bottom: 0px;
+         border-radius: 20px;
+         border: 2px solid #ccc;
+         cursor: pointer;
+         background-color: rgba(#fff,.8);
+         box-shadow: 0 5px 4px rgba(#333,.5);
+         z-index: 2;
+         transition: bottom .2s ease;
+         &:active{
+            background-color: rgba(#999,.8);
+         }
+         &::before{
+            position: absolute;
+            content: "";
+            width: 14px;
+            height: 14px;
+            top: 10px;
+            left: 10px;
+            border-top: 2px solid #ccc;
+            border-left: 2px solid #ccc;
+            transform: rotate(45deg);
+         }
+         &::after{
+            position: absolute;
+            content: "";
+            width: 2px;
+            height: 16px;
+            background-color: #ccc;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+         }
+      }
+   }
+}

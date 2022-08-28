@@ -708,6 +708,105 @@ footer #social_contact_us ul li {
   margin: 0 10px;
   text-align: center;
 }
+footer #fast_link_popBox {
+  position: fixed;
+  right: -50px;
+  bottom: 80px;
+  transition: right 0.5s ease;
+}
+footer #fast_link_popBox.show {
+  right: 10px;
+}
+footer #fast_link_popBox.active #go_top {
+  bottom: -50px;
+}
+footer #fast_link_popBox.active #fast_link_popList li.pop_fb {
+  bottom: 95px;
+}
+footer #fast_link_popBox.active #fast_link_popList li.pop_line {
+  bottom: 50px;
+}
+footer #fast_link_popBox.active #fast_link_popList li.pop_ig {
+  bottom: 5px;
+}
+footer #fast_link_popBox #fast_link_pop {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  right: 0px;
+  border-radius: 20px;
+  background-color: #2f5575;
+  box-shadow: 0 3px 4px rgba(51, 51, 51, 0.5);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  z-index: 3;
+}
+footer #fast_link_popBox #fast_link_pop:hover {
+  background-color: #6ba1c5;
+}
+footer #fast_link_popBox #fast_link_pop > img {
+  width: 70%;
+  transform: rotate(0);
+  transition: transform 0.2s ease;
+}
+footer #fast_link_popBox #fast_link_pop > img:hover {
+  transform: rotate(180deg);
+}
+footer #fast_link_popBox #fast_link_popList {
+  position: relative;
+}
+footer #fast_link_popBox #fast_link_popList li {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 3px 4px rgba(51, 51, 51, 0.5);
+  bottom: -40px;
+  transition: bottom 0.2s ease;
+}
+footer #fast_link_popBox #go_top {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 0px;
+  border-radius: 20px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 5px 4px rgba(51, 51, 51, 0.5);
+  z-index: 2;
+  transition: bottom 0.2s ease;
+}
+footer #fast_link_popBox #go_top:active {
+  background-color: rgba(153, 153, 153, 0.8);
+}
+footer #fast_link_popBox #go_top::before {
+  position: absolute;
+  content: "";
+  width: 14px;
+  height: 14px;
+  top: 10px;
+  left: 10px;
+  border-top: 2px solid #ccc;
+  border-left: 2px solid #ccc;
+  transform: rotate(45deg);
+}
+footer #fast_link_popBox #go_top::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 16px;
+  background-color: #ccc;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 
 .banner#idx_banner {
   position: relative;
@@ -2009,14 +2108,8 @@ section#products_page #products_box #product_information #sizeBox #size_informat
   flex-wrap: wrap;
 }
 section#products_page #products_box #product_information #sizeBox #size_information li {
-  width: 100%;
   font-weight: bold;
   padding: 5px;
-}
-@media (min-width: 470px) {
-  section#products_page #products_box #product_information #sizeBox #size_information li {
-    width: 50%;
-  }
 }
 @media (min-width: 768px) {
   section#products_page #products_box #product_information #sizeBox #size_information li {
@@ -2033,18 +2126,27 @@ section#products_page #products_box #product_information #sizeBox #size_informat
     width: 33.3333333333%;
   }
 }
-section#products_page #products_box #product_information #sizeBox #size_information li > div {
-  background-color: #efefef;
+@media (min-width: 768px) {
+  section#products_page #products_box #product_information #sizeBox #size_information li > div {
+    background-color: #efefef;
+  }
 }
 section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name {
   position: relative;
   display: inline-block;
   margin-top: 5px;
   padding: 5px 10px;
-  color: #fff;
-  background-color: #604a3a;
+  color: #333;
+  background-color: #dcdcdc;
+}
+@media (min-width: 768px) {
+  section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name {
+    background-color: #604a3a;
+    color: #fff;
+  }
 }
 section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name::after {
+  display: none;
   position: absolute;
   content: "";
   top: 0px;
@@ -2055,10 +2157,24 @@ section#products_page #products_box #product_information #sizeBox #size_informat
   border-width: 31px 20px 0 0;
   border-color: #604a3a transparent transparent transparent;
 }
+@media (min-width: 768px) {
+  section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name::after {
+    display: block;
+  }
+}
 section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name .size_name {
   font-size: 18px;
 }
+section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name .size_cm {
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name .size_cm {
+    font-size: 14px;
+  }
+}
 section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_price {
+  display: none;
   background-color: transparent;
   text-align: right;
   font-size: 13px;
@@ -2066,6 +2182,32 @@ section#products_page #products_box #product_information #sizeBox #size_informat
 }
 section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_price .show_price {
   font-size: 22px;
+}
+@media (min-width: 768px) {
+  section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_price {
+    display: block;
+  }
+}
+section#products_page #products_box #product_information #sizeBox #size_information li.active > div > div.size_infor_name {
+  color: #fff;
+  background-color: #604a3a;
+}
+section#products_page #products_box #product_information #sizeBox #mobile_show_price {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  color: #604a3a;
+  margin: 10px 0;
+}
+@media (min-width: 768px) {
+  section#products_page #products_box #product_information #sizeBox #mobile_show_price {
+    display: none;
+  }
+}
+section#products_page #products_box #product_information #sizeBox #mobile_show_price .show_price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f00;
 }
 section#contactUs .title {
   color: #29577b;
