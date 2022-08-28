@@ -893,12 +893,24 @@ section{
     &#customize_page{
         #customizeBox{
             position: relative;
+            .for_mobile{
+                display: block;
+                @include rwdSize-min($pad){
+                    display: none;
+                }
+            }
+            .for_pc{
+                display: none;
+                @include rwdSize-min($pad){
+                    display: block;
+                }
+            }
             .customize_text1{
                 position: absolute;
                 color: #fff;
                 background-color: rgba(#697863,.8);
                 width: calc(100% - 20px);
-                top: 4.5%;
+                top: 3.5%;
                 padding: 10px;
                 font-size: 14.5px;
                 box-shadow: 0 4px 4px rgba(#333,.8);
@@ -912,11 +924,9 @@ section{
                 }
                 @include rwdSize-min($mobile_m){
                     width: 360px;
-                    top: 3.5%;
                     left: 5%;
                 }
                 @include rwdSize-min($pad){
-                    top: 3.5%;
                     left: 5%;
                     width: 320px;
                     font-size: 15px;
@@ -926,7 +936,6 @@ section{
                     font-size: 18px;
                 }
                 @include rwdSize-min($pc-l){
-                    top: 3.5%;
                     width: 480px;
                     font-size: 22px;
                 }

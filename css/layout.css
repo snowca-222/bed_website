@@ -1835,12 +1835,28 @@ section#about_page .contentBox .the_dog {
 section#customize_page #customizeBox {
   position: relative;
 }
+section#customize_page #customizeBox .for_mobile {
+  display: block;
+}
+@media (min-width: 768px) {
+  section#customize_page #customizeBox .for_mobile {
+    display: none;
+  }
+}
+section#customize_page #customizeBox .for_pc {
+  display: none;
+}
+@media (min-width: 768px) {
+  section#customize_page #customizeBox .for_pc {
+    display: block;
+  }
+}
 section#customize_page #customizeBox .customize_text1 {
   position: absolute;
   color: #fff;
   background-color: rgba(105, 120, 99, 0.8);
   width: calc(100% - 20px);
-  top: 4.5%;
+  top: 3.5%;
   padding: 10px;
   font-size: 14.5px;
   box-shadow: 0 4px 4px rgba(51, 51, 51, 0.8);
@@ -1860,13 +1876,11 @@ section#customize_page #customizeBox .customize_text1 {
 @media (min-width: 414px) {
   section#customize_page #customizeBox .customize_text1 {
     width: 360px;
-    top: 3.5%;
     left: 5%;
   }
 }
 @media (min-width: 768px) {
   section#customize_page #customizeBox .customize_text1 {
-    top: 3.5%;
     left: 5%;
     width: 320px;
     font-size: 15px;
@@ -1880,7 +1894,6 @@ section#customize_page #customizeBox .customize_text1 {
 }
 @media (min-width: 1200px) {
   section#customize_page #customizeBox .customize_text1 {
-    top: 3.5%;
     width: 480px;
     font-size: 22px;
   }
