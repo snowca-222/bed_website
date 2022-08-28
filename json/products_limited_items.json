@@ -1,0 +1,14 @@
+[
+    {
+        "product_name": "我是內文1",
+        "product_link": "item1"
+    },
+    {
+        "product_name": "我是內文2",
+        "product_link": "item2"
+    },
+    {
+        "product_name": "我是內文3",
+        "product_link": "item3"
+    }
+]

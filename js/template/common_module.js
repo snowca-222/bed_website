@@ -42,6 +42,9 @@ export function headerTemp(){
     $('#nav_hamberger ,.blackBoard').on('click',function(){
         $('.ham_bar, header nav, .blackBoard').toggleClass('active');
     })
+    $('.second_lists').on('click', function(){
+        $(this).toggleClass('active')
+    })
 }
 // 頁尾
 export function footerTemp(){
@@ -73,7 +76,7 @@ export function footerTemp(){
 // 監聽螢幕尺寸
 $(window).resize(function(){
     if($(window).width() > 768){
-        $('.ham_bar, header nav, .blackBoard').removeClass('active');
+        $('.ham_bar, header nav, .blackBoard, .second_lists').removeClass('active');
     }
 })
 // 右下角浮動icon

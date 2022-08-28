@@ -16,58 +16,78 @@
                 <div class="logo"><img src="images/straight_logo.png" alt="logo"></div>
                 <div class="slogan_text">隨心搭配，打造專屬風格</div>
             </div>
-            <section id="products_page" class="container">
+            <section id="products_page" class="product_content_style container">
                 <nav id="breadcrumb_nav"></nav>
                 <div id="products_box" class="clearfix">
-                    <div id="product_mainPhoto" class="grid-col-mb-12 grid-col-m-6"><div>商品圖</div></div>
-                    <div id="product_information" class="grid-col-mb-12 grid-col-m-6">
-                        <div id="priceBox" class="grid-col-m-6">
-                            <div>
-                                <div class="item_price">$<span>24,900</span></div>
-                                <div>床墊尺寸
-                                    <select>
-                                        <option disabled selected>請選擇</option>
-                                        <option value="3">3呎</option>
-                                        <option value="3.5">3.5呎</option>
-                                        <option value="5">5呎</option>
-                                        <option value="6">6呎</option>
-                                        <option value="7">7呎</option>
-                                    </select>
-                                </div>
-                                <div id="lineBox">line 洽詢客服</div>
-                            </div>
-                        </div>
-                        <div id="sizeBox" class="grid-col-m-6">
-                            <div>
-                                <div id="item_name"></div>
+                    <div id="product_mainPhoto" class="grid-col-mb-12 grid-col-m-5">
+                        <div id="product_photo"></div>
+                    </div>
+                    <div id="product_information" class="grid-col-mb-12 grid-col-m-7">
+                        <div id="sizeBox">
+                            <div id="item_name"></div>
+                            <div id="hot_tips">
+                                <p>可輸入文字簡單說明床的特色。</p>
                                 <ul>
-                                    <li>
-                                        <div class="size_name">3呎</div>
-                                        <div class="size_cm">寬 91 公分 / 深 188 公分</div>
-                                    </li>
-                                    <li>
-                                        <div class="size_name">3.5呎</div>
-                                        <div class="size_cm">寬 106 公分 / 深 188 公分</div>
-                                    </li>
-                                    <li>
-                                        <div class="size_name">5呎</div>
-                                        <div class="size_cm">寬 152 公分 / 深 188 公分</div>
-                                    </li>
-                                    <li>
-                                        <div class="size_name">6呎</div>
-                                        <div class="size_cm">寬 182 公分 / 深 188 公分</div>
-                                    </li>
-                                    <li>
-                                        <div class="size_name">7呎</div>
-                                        <div class="size_cm">寬 182 公分 / 深 212 公分</div>
-                                    </li>
-                                </ul>
+                                    <li>特色1</li>
+                                    <li>特色2</li>
+                                    <li>特色3</li>
+                                </ul>                                
                             </div>
+                            <ul id="size_information">
+                                <li class="size_ss">
+                                    <div>
+                                        <div class="size_infor_name">
+                                            <span class="size_name">3呎</span>
+                                            <span class="size_cm">91×188 公分</span>
+                                        </div>
+                                        <div class="size_price"><div>建議售價</div>$<span id="price_ss" class="show_price"></span></div>
+                                    </div>
+                                </li>
+                                <li class="size_s">
+                                    <div>
+                                        <div class="size_infor_name">
+                                            <span class="size_name">3.5呎</span>
+                                            <span class="size_cm">106×188 公分</span>
+                                        </div>
+                                        <div class="size_price"><div>建議售價</div>$<span id="price_s" class="show_price"></span></div>
+                                    </div>
+                                </li>
+                                <li class="size_m">
+                                    <div>
+                                        <div class="size_infor_name">
+                                            <span class="size_name">5呎</span>
+                                            <span class="size_cm">152×188 公分</span>
+                                        </div>
+                                        <div class="size_price"><div>建議售價</div>$<span id="price_m" class="show_price"></span></divid=>
+                                    </div>
+                                </li>
+                                <li class="size_l">
+                                    <div>
+                                        <div class="size_infor_name">
+                                            <span class="size_name">6呎</span>
+                                            <span class="size_cm">182×188 公分</span>
+                                        </div>
+                                        <div class="size_price"><div>建議售價</div>$<span id="price_l" class="show_price"></span></div>
+                                    </div>
+                                </li>
+                                <li class="size_xl">
+                                    <div>
+                                        <div class="size_infor_name">
+                                            <span class="size_name">7呎</span>
+                                            <span class="size_cm">182×212 公分</span>
+                                        </div>
+                                        <div class="size_price"><div>建議售價</div>$<span id="price_xl" class="show_price"></span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="contact_with_box">
+                            <a href="#" id="contact_withLINE" class="contact_now_btn"><span class="icon_img"><img src="images/icon/line_icon.png" alt=""></span> 洽詢客服</a>
+                            <a href="TEL:04-23201861" id="contact_withTEL" class="contact_now_btn"><span class="icon_img"><img src="images/icon/phone_icon.png" alt=""></span> 來電洽詢</a>
                         </div>
                     </div>
                 </div>
                 <div id="item_content">
-                    <!-- <img src="images/products/product_01.jpg"> -->
                 </div>
             </section>
         </main>
@@ -90,7 +110,12 @@
             .then(itemData =>{
                 console.log(itemData)
                 document.getElementById('item_name').innerHTML = itemData.name; // 置入名稱
-                document.getElementById('product_mainPhoto').innerHTML = `<img src="${itemData.itemImg}" alt="${itemData.name}">`;
+                document.getElementById('product_photo').innerHTML = `<img src="${itemData.itemImg}" alt="${itemData.name}">`;
+                document.getElementById('price_ss').innerHTML = itemData.price_s1.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                document.getElementById('price_s').innerHTML = itemData.price_s2.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                document.getElementById('price_m').innerHTML = itemData.price_s3.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                document.getElementById('price_l').innerHTML = itemData.price_s4.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                document.getElementById('price_xl').innerHTML = itemData.price_s5.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 
                 let itemContent = ``;
                 itemData.content.forEach(itemImg => {

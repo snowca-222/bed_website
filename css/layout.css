@@ -411,11 +411,13 @@ header .logo a {
   display: block;
   width: 120px;
   height: 60px;
+  margin-top: 5px;
 }
 @media (min-width: 768px) {
   header .logo a {
     width: 204px;
     height: 80px;
+    margin-top: initial;
   }
 }
 header #nav_hamberger {
@@ -540,8 +542,14 @@ header nav > ul > li.active::before {
     background-color: #fff !important;
   }
 }
-header nav > ul > li:hover > .second_lists ul.secList_box {
-  display: block;
+@media (min-width: 768px) {
+  header nav > ul > li:hover > .second_lists {
+    color: #fff;
+    background-color: #2f5575;
+  }
+  header nav > ul > li:hover > .second_lists ul.secList_box {
+    display: block;
+  }
 }
 header nav > ul > li .second_lists {
   position: relative;
@@ -561,20 +569,56 @@ header nav > ul > li .second_lists {
     cursor: pointer;
   }
 }
+@media (max-width: 767px) {
+  header nav > ul > li .second_lists.active > ul.secList_box {
+    margin-top: 20px;
+    height: auto;
+  }
+}
 header nav > ul > li .second_lists > ul.secList_box {
-  display: none;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  width: 160px;
-  background-image: linear-gradient(0deg, #5483aa 0%, #2f5575 100%);
+  width: 100%;
+}
+@media (max-width: 767px) {
+  header nav > ul > li .second_lists > ul.secList_box {
+    height: 0;
+    overflow: hidden;
+  }
+}
+@media (min-width: 768px) {
+  header nav > ul > li .second_lists > ul.secList_box {
+    position: absolute;
+    display: none;
+    width: 160px;
+    top: 40px;
+    left: 0;
+    background-image: linear-gradient(0deg, #5483aa 0%, #2f5575 100%);
+  }
 }
 header nav > ul > li .second_lists > ul > li a {
   display: block;
   color: #fff;
   padding: 10px;
   border-radius: 0;
-  border-bottom: 1px dashed #fff;
+}
+@media (max-width: 767px) {
+  header nav > ul > li .second_lists > ul > li a {
+    position: relative;
+  }
+  header nav > ul > li .second_lists > ul > li a::after {
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 14px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    top: 6px;
+    left: 0;
+  }
+}
+@media (min-width: 768px) {
+  header nav > ul > li .second_lists > ul > li a {
+    border-bottom: 1px dashed #fff;
+  }
 }
 header nav > ul > li .second_lists > ul > li a:hover {
   background-color: rgba(255, 255, 255, 0.5);
@@ -596,7 +640,7 @@ header nav > ul > li a {
     letter-spacing: 2px;
   }
 }
-header nav > ul > li.active > a, header nav > ul > li:hover > a, header nav > ul > li:hover > .second_lists {
+header nav > ul > li.active > a, header nav > ul > li:hover > a {
   color: #fff;
   background-color: #2f5575;
 }
@@ -910,6 +954,76 @@ footer #social_contact_us ul li {
     top: 54%;
   }
 }
+.banner#limited_banner {
+  position: relative;
+  background-image: url(../images/contact_bg.jpg);
+  background-size: 1920px 1400px;
+  background-position: center -450px;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 200px;
+}
+@media (min-width: 768px) {
+  .banner#limited_banner {
+    height: 330px;
+    background-position: center -380px;
+  }
+}
+@media (min-width: 992px) {
+  .banner#limited_banner {
+    height: 400px;
+    background-position: center -380px;
+  }
+}
+.banner#limited_banner .logo {
+  position: absolute;
+  width: 180px;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .banner#limited_banner .logo {
+    width: 280px;
+    top: 40px;
+  }
+}
+@media (min-width: 992px) {
+  .banner#limited_banner .logo {
+    width: 300px;
+  }
+}
+@media (min-width: 1200px) {
+  .banner#limited_banner .logo {
+    width: 320px;
+    top: 40px;
+  }
+}
+.banner#limited_banner .slogan_text {
+  position: absolute;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 10px;
+  width: 300px;
+  color: #29577b;
+  top: 80%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  .banner#limited_banner .slogan_text {
+    top: 80%;
+    width: 500px;
+    font-size: 32px;
+  }
+}
+@media (min-width: 992px) {
+  .banner#limited_banner .slogan_text {
+    top: 75%;
+  }
+}
 .banner#products_banner {
   position: relative;
   background-image: url(../images/contact_bg.jpg);
@@ -1056,28 +1170,37 @@ section #women_box .women_img {
 }
 @media (min-width: 768px) {
   section #women_box .women_img {
+    display: block;
     height: 680px;
   }
 }
 section #women_box .contentBox {
   position: absolute;
-  background-color: rgba(144, 184, 211, 0.9);
+  top: 0;
+  left: 0;
+  right: 0;
   color: #2f5575;
-  box-shadow: 0 0 8px #666;
-  width: 100%;
-  top: 16px;
-  padding: 20px 0;
-  margin: auto;
+  width: 300px;
+  padding: 30px 0;
+  margin: 30px auto;
+  border: 1px solid #333;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 @media (min-width: 768px) {
   section #women_box .contentBox {
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 10px;
+    margin: auto;
     width: 500px;
     height: 300px;
     padding: 30px;
+    box-shadow: 0 0 8px #666;
     background-color: rgba(144, 184, 211, 0.7);
+    border: 0;
+    border-radius: 0;
   }
 }
 @media (min-width: 992px) {
@@ -1090,6 +1213,7 @@ section #women_box .contentBox {
 }
 @media (min-width: 1200px) {
   section #women_box .contentBox {
+    top: 0;
     width: 744px;
     height: 467px;
     padding: 100px;
@@ -1097,6 +1221,18 @@ section #women_box .contentBox {
 }
 section #women_box .contentBox .title {
   width: 290px;
+}
+@media (max-width: 767px) {
+  section #women_box .contentBox .title {
+    padding: 0;
+  }
+  section #women_box .contentBox .title::after {
+    width: 120px;
+    height: 1px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
 }
 @media (min-width: 768px) {
   section #women_box .contentBox .title {
@@ -1652,6 +1788,15 @@ section#products .scrollBox .scrollController {
 section#products .scrollBox .scrollController .btn_left::after, section#products .scrollBox .scrollController .btn_right::after, section#products .scrollBox .scrollController .btn_left::before, section#products .scrollBox .scrollController .btn_right::before {
   background-color: #fff;
 }
+section#products_page {
+  background-color: #90b8d3;
+}
+section#products_page.product_content_style {
+  background-color: #fff;
+}
+section#products_page nav#breadcrumb_nav {
+  padding: 10px 0;
+}
 section#products_page nav#breadcrumb_nav > span {
   font-size: 13px;
 }
@@ -1680,6 +1825,10 @@ section#products_page nav#breadcrumb_nav ol li::after {
 section#products_page nav#breadcrumb_nav ol li:nth-last-of-type(1)::after {
   display: none;
 }
+section#products_page #products_box {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
 section#products_page #products_box .products_box_item {
   padding: 10px;
 }
@@ -1687,27 +1836,161 @@ section#products_page #products_box .products_box_item a {
   display: block;
   padding: 10px;
   background-color: #efefef;
-  text-align: center;
+  transition: background-color 0.2s ease;
+}
+section#products_page #products_box .products_box_item a span.product_name {
+  display: block;
+  padding: 10px 0;
+  color: #333;
+}
+section#products_page #products_box .products_box_item a:hover {
+  background-color: #d6d6d6;
 }
 section#products_page #products_box #product_mainPhoto {
-  padding: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+@media (min-width: 992px) {
+  section#products_page #products_box #product_mainPhoto {
+    padding: 10px 10px 10px 0;
+  }
+}
+section#products_page #products_box #product_mainPhoto #product_photo {
+  overflow: hidden;
+}
+@media (min-width: 1200px) {
+  section#products_page #products_box #product_mainPhoto #product_photo {
+    width: 490px;
+    height: 390px;
+  }
 }
 section#products_page #products_box #product_information {
   padding: 10px;
 }
-section#products_page #products_box #product_information #priceBox {
-  padding: 10px;
+section#products_page #products_box #product_information #contact_with_box {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
-section#products_page #products_box #product_information #priceBox > div {
-  border: 1px solid #bbb;
-  padding: 10px;
+section#products_page #products_box #product_information #contact_with_box .contact_now_btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  width: 160px;
+  margin: 10px 0 10px 10px;
+  border-radius: 8px;
+  color: #fff;
+}
+section#products_page #products_box #product_information #contact_with_box .contact_now_btn#contact_withLINE {
+  background-color: #00c854;
+  border-bottom: 5px solid #006229;
+}
+section#products_page #products_box #product_information #contact_with_box .contact_now_btn#contact_withLINE:hover {
+  top: 4px;
+  border-bottom: 1px solid #006229;
+}
+section#products_page #products_box #product_information #contact_with_box .contact_now_btn#contact_withTEL {
+  background-color: #009aff;
+  border-bottom: 5px solid #005c99;
+}
+section#products_page #products_box #product_information #contact_with_box .contact_now_btn#contact_withTEL:hover {
+  top: 4px;
+  border-bottom: 1px solid #005c99;
+}
+section#products_page #products_box #product_information #contact_with_box .contact_now_btn span.icon_img {
+  width: 50px;
 }
 section#products_page #products_box #product_information #sizeBox {
-  padding: 10px;
+  color: #604a3a;
 }
-section#products_page #products_box #product_information #sizeBox > div {
-  border: 1px solid #bbb;
+section#products_page #products_box #product_information #sizeBox #item_name {
+  font-weight: bold;
+  font-size: 26px;
+}
+section#products_page #products_box #product_information #sizeBox #hot_tips {
+  border: 1px solid #ccc;
   padding: 10px;
+  min-height: 120px;
+  margin: 20px 0;
+}
+section#products_page #products_box #product_information #sizeBox #hot_tips > ul > li {
+  position: relative;
+  margin: 5px 0 5px 15px;
+}
+section#products_page #products_box #product_information #sizeBox #hot_tips > ul > li::before {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #2f5575;
+  top: 50%;
+  left: -15px;
+  transform: translateY(-60%) rotate(45deg);
+}
+section#products_page #products_box #product_information #sizeBox #size_information {
+  display: flex;
+  flex-wrap: wrap;
+}
+section#products_page #products_box #product_information #sizeBox #size_information li {
+  width: 100%;
+  font-weight: bold;
+  padding: 5px;
+}
+@media (min-width: 470px) {
+  section#products_page #products_box #product_information #sizeBox #size_information li {
+    width: 50%;
+  }
+}
+@media (min-width: 768px) {
+  section#products_page #products_box #product_information #sizeBox #size_information li {
+    width: 33.3333333333%;
+  }
+}
+@media (min-width: 992px) {
+  section#products_page #products_box #product_information #sizeBox #size_information li {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  section#products_page #products_box #product_information #sizeBox #size_information li {
+    width: 33.3333333333%;
+  }
+}
+section#products_page #products_box #product_information #sizeBox #size_information li > div {
+  background-color: #efefef;
+}
+section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name {
+  position: relative;
+  display: inline-block;
+  margin-top: 5px;
+  padding: 5px 10px;
+  color: #fff;
+  background-color: #604a3a;
+}
+section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name::after {
+  position: absolute;
+  content: "";
+  top: 0px;
+  right: -20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 31px 20px 0 0;
+  border-color: #604a3a transparent transparent transparent;
+}
+section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_infor_name .size_name {
+  font-size: 18px;
+}
+section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_price {
+  background-color: transparent;
+  text-align: right;
+  font-size: 13px;
+  padding: 10px 5px 5px;
+}
+section#products_page #products_box #product_information #sizeBox #size_information li > div > div.size_price .show_price {
+  font-size: 22px;
 }
 section#contactUs .title {
   color: #29577b;
